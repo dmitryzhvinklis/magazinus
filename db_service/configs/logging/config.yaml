@@ -1,3 +1,0 @@
-logging:
-  level: "info" # Уровень логирования: debug, info, warn, error
-  log_file: "logs/app.log" # Путь к файлу логов
