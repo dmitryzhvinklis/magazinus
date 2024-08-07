@@ -1,4 +1,4 @@
-package database
+package models
 
 import (
 	"time"
@@ -6,7 +6,6 @@ import (
 	"gorm.io/gorm"
 )
 
-// User представляет собой модель пользователя с основной информацией
 type User struct {
 	ID           string    `gorm:"type:uuid;primaryKey;default:uuid_generate_v4()"`
 	Username     string    `gorm:"size:100;unique;not null"`
@@ -18,11 +17,6 @@ type User struct {
 	UpdatedAt    time.Time `gorm:"autoUpdateTime"`
 }
 
-// Migrate выполняет миграцию моделей в базе данных
 func Migrate(db *gorm.DB) error {
-	err := db.AutoMigrate(&User{})
-	if err != nil {
-		return err
-	}
-	return nil
+	return db.AutoMigrate(&User{})
 }
